@@ -1,0 +1,30 @@
+{% extends "./dashboard1.html" %} 
+{% block title %}
+  {{user}}'s Bookings
+{% endblock title %}
+{% block content %}
+  <div class="main-content">
+      <div class="panel-wrapper">
+        <div class="panel-head">
+          <center><h2>My Recent Bookings</h2></center>
+        </div>
+        <div class="panel-body">
+          <h3 style="text-align:center;">You can buy ticket at the time of travel day , once you come to the railway station.</h3>
+            {% for data in datas %}
+            <div class="datas">
+            <hr>
+                  <h4>Name : {{data.name}}</h4>
+                  <h4>date_of_birth : {{data.date_of_birth}}</h4>
+                  <h4>Tickets booked : {{data.no_of_persons}}</h4>
+                  <h4>Date of Travel : {{data.date}}</h4>
+                  <h4>Train arrival place : {{data.place}}</h4>
+            <hr>
+          </div>
+            {% endfor %}
+            
+         
+            
+        </div>
+      </div>
+  </div>
+{% endblock content %}

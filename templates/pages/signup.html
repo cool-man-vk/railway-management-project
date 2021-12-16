@@ -1,0 +1,41 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup Page</title>
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <!-- Add custom CSS here -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+    <style>
+        * 
+        {
+            font-family: Lato;
+        }
+            .invalid-feedback
+            {
+                color:green;
+            }
+    </style>
+</head>
+<body>
+
+    <h1 style = "text-align:center;">Signup Page</h1>
+    <div class="container py-5">
+        <form method="POST">
+            {% csrf_token %}
+            {{ form | crispy}}    <br>     
+            <button class="btn btn-primary" type="submit">Register</button>
+        </form>
+    </div>
+    <h5 class="text-center">Have an account?<a href="/login/">Login here</a></h5>
+    
+</body>
+</html>

@@ -1,0 +1,13 @@
+{% extends "./dashboard.html" %} 
+{% block title %}
+  Confirmation Page
+{% endblock title %}
+{% block content %}
+  <div class="main-content">
+      <div class="container py-5">
+          {% for datas in data %}
+            {{datas}}
+          {% endfor %}
+      </div>
+  </div>
+{% endblock content %}

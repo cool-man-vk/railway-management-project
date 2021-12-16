@@ -1,0 +1,31 @@
+{% extends "./dashboard1.html" %} 
+{% load crispy_forms_tags %}
+{% block title %}
+  Booking Page
+{% endblock title %}
+<style>
+  .invalid-feedback {
+    color:red;
+  }
+</style>
+{% block content %}
+    <div class="main-content">
+      <div class="container py-5">
+        <form action="" method="post">
+          {% csrf_token %}
+          {{form | crispy }}
+          <br>
+          <button class="btn btn-primary" type="submit">Proceed</button>
+        </form>
+      </div>
+      <!-- <div class="container py-5">
+        <form action="" method="post">
+          {% csrf_token %}
+          {% for personDet in personForm  %}
+            {{personDet}}
+          {% endfor %}
+          <button class="btn btn-primary" type="submit">Submit</button>
+        </form>
+      </div> -->
+    </div>
+{% endblock %}

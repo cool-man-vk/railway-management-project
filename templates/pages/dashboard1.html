@@ -1,0 +1,297 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}
+      Dashboard HomePage
+    {% endblock title %}</title>
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <!-- Add custom CSS here -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+    <style>
+       *{
+         font-family:Lato;
+       }
+       a 
+       {
+          text-decoration: none;
+       }
+       th 
+       { 
+         text-align:center;
+        }
+       th,td {  
+          padding:6px;
+       }
+       .datas { 
+        width:100%;
+        height:auto;
+        border:2px solid greenyellow;
+        margin-top: 5px; 
+        margin-bottom: 5px;
+        border-radius: 20px;
+        padding:15px;
+      }
+    </style>
+</head>
+<body>
+    <!--Start content-->
+    <!--Sidenavbar start-->
+    <header>
+        <div class="logo">Tra<span style="color:red;">Vello</span></div>
+    </header>
+        <div class="nav-btn">Menu</div>
+        <div class="container">
+        
+        <div class="sidebar">
+        <nav>
+        <a href="/dashboard/">Tra<span style="color:red;">Vello</span></a>
+        <ul>
+        <li><a href="/dashboard/">Home</a></li>
+        <li><a href="/book_trains/">Booking</a></li></a></li>
+        <li><a href="/booking_lists/">My Bookings</a></li>
+        <li><a href="/logout">Log Out</a></li>
+        </ul>
+        </nav>
+        </div>
+        <!--Sidenavbar end-->
+   
+        
+    {% block content %}
+        <div class="main-content">
+        <h1>Welcome <b style="color: orange;">{{user}}</b></h1>
+        <center>
+         <form action="" method="get">
+            <input type="text" name="train_name" class="form-control" placeholder="Search with name of train.."> 
+            <br/>
+            <input type="text" name="dest_station" class="form-control" placeholder="Search destination Place.."> 
+            <br/>
+            <input type="submit" value="Search" class="btn btn-success">
+         </form>
+        </center>
+        <hr/>
+        <div class="panel-wrapper">
+        <div class="panel-head">
+        </div>
+        <div class="panel-body">
+            <center>
+                <table style="width:90%;text-align:center;" cellpadding = "5" cellspacing = "5" >
+                   <tr style="text-align:center;">
+                      <th bgcolor=" #ccffff" style="color: #993382;">Train name</th>
+                      <th bgcolor=" #ccffff" style="color: #993382">Train number</th>
+                      <th bgcolor=" #ccffff" style="color: #993382">Arrival time</th>
+                      <th bgcolor=" #ccffff" style="color: #993382">Departure time</th>
+                      <th bgcolor=" #ccffff" style="color: #993382">Destination station</th>
+                      <th bgcolor=" #ccffff" style="color: #993382">Operation</th>
+                   </tr>
+                   {% for datas in data %}
+                   <tr style="text-align:center" >
+                      <td bgcolor="#F5F5DC">{{datas.train_name}}</td>
+                      <td bgcolor="#F5F5DC">{{datas.train_number}}</td>
+                      <td bgcolor="#F5F5DC">{{datas.arrival_time}}</td>
+                      <td bgcolor="#F5F5DC">{{datas.departure_time}}</td>
+                      <td bgcolor="#F5F5DC">{{datas.dest_station}}</td>
+                      <td bgcolor="#F5F5DC"><a style="color:blueviolet;text-decoration:underline;" href="/book_trains/">Book Now</a></td>
+                   </tr>
+                   {% endfor %}          
+                </table>
+          </center>
+        </div>
+        
+        </div>
+        </div>
+        </div>
+        {% endblock content %}
+    
+        <style>
+           
+    @import 'https://fonts.googleapis.com/css?family=Lato:300,400';* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    }
+    body, html {
+    font-family: 'Lato', sans-serif;
+    font-size: 20px;
+    height: 100%;
+    position: relative;
+    }.clearfix:after {
+    content: "";
+    display: block;
+    clear: both;
+    }a {
+    color: #fff;
+    text-decoration: none;
+    }.nav-btn {
+    width: 100%;
+    height: 35px;
+    padding-top: 4px;
+    color: #D5D3D3;
+    background-color: #212121; ;
+    text-align: center;
+    cursor: pointer;
+    display: none;
+    }
+    .nav-btn:active {
+    background-color: #090909;
+    }header {
+    height: 50px;
+    width: 100%;
+    background-color: #274C6B;
+    display: none;
+    }header .logo {
+    opacity: 0.9;
+    font-size: 120%;
+    padding-top: 9px;
+    padding-left: 8px;
+    color: #fff;
+    }
+    header .logo span {
+    font-weight: 300;
+    }.container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    }.sidebar {
+    width: 250px;
+    background-color: #302F2F;
+    position: fixed;
+    top: 0px;
+    left: 0;
+    bottom: 0;
+    box-shadow: 1px 0px 10px #777;
+    }.sidebar nav > a {
+    font-size: 150%;
+    display: inline-block;
+    padding: 30px 0px;
+    padding-left: 30px;
+    opacity: 0.7;
+    transition: all 0.2s;
+    }
+    .sidebar nav > a:hover {
+    opacity: 1;
+    }.sidebar nav a span {
+    font-weight: 300;
+    }.sidebar nav ul {
+    list-style: none;
+    }.sidebar nav ul li {
+    font-size: 70%;
+    padding: 19px 0;
+    padding-left: 20px;
+    border-bottom: 0.5px solid #111;
+    }.sidebar nav ul li:nth-child(1):hover {
+    background-color: #e67e22;
+    }.sidebar nav ul li:nth-child(1).active {
+    background-color: #e67e22;
+    }.sidebar nav ul li:nth-child(2):hover {
+    background-color: #2980b9;
+    }.sidebar nav ul li:nth-child(2).active {
+    background-color: #2980b9;
+    }.sidebar nav ul li:nth-child(3):hover {
+    background-color: #16a085;
+    }.sidebar nav ul li:nth-child(3).active {
+    background-color: #16a085;
+    }.sidebar nav ul li:nth-child(4):hover {
+    background-color: #8e44ad;
+    }.sidebar nav ul li:nth-child(4).active {
+    background-color: #8e44ad;
+    }.sidebar nav ul li:nth-child(5):hover {
+    background-color: #f1c40f;
+    }.sidebar nav ul li:nth-child(5).active {
+    background-color: #f1c40f;
+    }
+    .sidebar nav ul li a {
+    color: #D7D5D5;
+    }.sidebar nav ul li:hover a{
+    color: #fff;
+    }.main-content {
+    background-color: #fafafa;
+    width: calc(100% - 250px);
+    height: 100%;
+    margin-left: 250px;
+    padding: 20px 30px;
+    }
+    .main-content .panel-wrapper {
+    margin: 20px 0;
+    box-shadow: 0px 1px 5px #777;
+    }.main-content .panel-wrapper .panel-head {
+    background-color: #00A5F2;
+    color: #fff;
+    padding: 10px 10px;
+    border: 1px solid #00A5F2;
+    }
+    .main-content .panel-wrapper .panel-body {
+    padding: 20px 10px;
+    font-size: 80%;
+    }@media only screen and (max-width: 420px){
+    header {
+    display: block;
+    }
+    .nav-btn {
+    display: block;
+    }
+    .sidebar {
+    position: relative;
+    height: 378px;
+    width: 100%;
+    display: none;
+    margin-bottom: 40px;
+    z-index: 1000;
+    }
+    .main-content {
+    width: 100%;
+    margin-left: 0;
+    z-index: -1;
+    position: relative;
+    }
+    }@media only screen and (max-width: 768px){
+    header {
+    display: block;
+    }
+    .nav-btn {
+    display: block;
+    }
+    .sidebar {
+    position: relative;
+    height: 378px;
+    width: 100%;
+    display: none;
+    margin-bottom: 40px;
+    z-index: 1000;
+    }
+    .main-content {
+    width: 100%;
+    margin-left: 0;
+    z-index: -1;
+    position: relative;
+    }
+    }
+    
+    </style>
+    <script>
+        $(document).ready(function() {
+    $('.nav-btn').on('click', function(event) {
+    event.preventDefault();
+    /* Act on the event */
+    $('.sidebar').slideToggle('fast');
+    
+    
+    
+    window.onresize = function(){
+    if ($(window).width() >= 768) {
+    $('.sidebar').show();
+    } else {
+    $('.sidebar').hide();
+    }
+    };
+    });
+    });
+    </script>
+
+</body>
+</html>
