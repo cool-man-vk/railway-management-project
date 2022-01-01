@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-(wt7_p#ltsz#3#t!cmpeow!==s=tt#xmdlf0a1e=uf^2$zw7^1
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    'localhost','127.0.0.1','https://rapidbook-railway.herokuapp.com/',
+    '*'
 ]
 
 
