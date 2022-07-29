@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'pages',
     'crispy_forms',
     'django_filters',
+    'django.contrib.sites'
 ]
 
 MIDDLEWARE = [
