@@ -26,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-(wt7_p#ltsz#3#t!cmpeow!==s=tt#xmdlf0a1e=uf^2$zw7^1'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
     '*'
@@ -129,6 +129,9 @@ STATICFILES_DIRS = [
  os.path.join(BASE_DIR,'static')
 ]
 STATIC_ROOT = os.path.join(BASE_DIR,'static')
+STATICFILES_DIRS = [ 
+ os.path.join(BASE_DIR,'static')
+]
 #STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 #STATICFILES_STORAGE =  'django.contrib.staticfiles.storage.StaticFilesStorage'
 
