@@ -91,8 +91,8 @@ def TrainBookedlist(request):
 def proceedPage(request):
     return render(request,"pages/proceed.html") 
 
-def error500(request , *args , **argv):
-    response = render('pages/error500.html', {},
-                                  context_instance=RequestContext(request))
-    response.status_code = 500
-    return response
+# def error500(request , *args , **argv):
+#     response = render('pages/error500.html', {},
+#                                   context_instance=RequestContext(request))
+#     response.status_code = 500
+#     return response
