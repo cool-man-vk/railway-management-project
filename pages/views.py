@@ -3,11 +3,12 @@ from django.http import HttpResponse
 from .forms import *
 from .models import *
 from django.db.models import Q
-from django.shortcuts import render , redirect 
+from django.shortcuts import render , redirect , render_to_response
 from django.http import HttpResponse 
 from django.contrib import messages 
 from django.contrib.auth import authenticate , logout , login  as auth_login 
 from django.contrib.auth.decorators import login_required
+from django.template import RequestContext
 
 def homepage(request):
     form = ContactForm(request.POST or None)  
@@ -89,3 +90,9 @@ def TrainBookedlist(request):
 
 def proceedPage(request):
     return render(request,"pages/proceed.html") 
+
+def error500(request , *args , **argv):
+    response = render_to_response('pages/error500.html', {},
+                                  context_instance=RequestContext(request))
+    response.status_code = 500
+    return response
