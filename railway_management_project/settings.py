@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-(wt7_p#ltsz#3#t!cmpeow!==s=tt#xmdlf0a1e=uf^2$zw7^1
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '*'
+    'https://railway-rapidbook.herokuapp.com'
 ]
 
 
