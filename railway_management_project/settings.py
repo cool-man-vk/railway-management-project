@@ -26,10 +26,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-(wt7_p#ltsz#3#t!cmpeow!==s=tt#xmdlf0a1e=uf^2$zw7^1'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
-    'https://railway-rapidbook.herokuapp.com'
+    'https://railway-rapidbook.herokuapp.com',
+    'http://localhost:8000'
 ]
 
 
